@@ -7,6 +7,7 @@ Front-end em React.js para integração com projeto de servidor em Node.js. Nest
 ### Stack
 - Node v18.15.0
 - NPM v.9.5.0
+- Vite
 - React v18.2.0
 - Axios v1.3.4
 - Phosphor v1.4.1
