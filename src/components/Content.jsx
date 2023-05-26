@@ -11,7 +11,6 @@ export function Content() {
   const [repositories, setRepositories] = useState([])
   const [nome, setNome] = useState('')
   const [minibio, setminibio] = useState('')
-  const [citacao, setCitacao] = useState('')
   const [imagem, setImagem] = useState('')
   const [success, setSuccess] = useState(false)
   const baseURL = 'https://projeto-node.onrender.com/mulheres'
@@ -36,10 +35,6 @@ export function Content() {
     setImagem(event.target.value)
   }
 
-  function handleInputValueCitacao(event) {
-    setCitacao(event.target.value)
-  }
-
   function handleCreateMessage(event) {
     event.preventDefault()
 
@@ -48,7 +43,6 @@ export function Content() {
     async function sendData() {
       await Axios.post(baseURL, {
         nome: nome,
-        citacao: citacao,
         minibio: minibio,
         imagem: imagem
       })
@@ -61,7 +55,6 @@ export function Content() {
     setNome('')
     setminibio('')
     setImagem('')
-    setCitacao('')
   }
 
   return (
@@ -85,7 +78,6 @@ export function Content() {
                     {repo.nome}
                   </summary>
                   <p className={styles.cardRepoText}>{repo.minibio}</p>
-                  <q className={styles.cardRepoQuote}>{repo.citacao}</q>
                 </details>
               </div>
               )
@@ -112,12 +104,6 @@ export function Content() {
             onChange={handleInputValueminibio} 
             placeholder="Digite a minibiografia"
             value={minibio}
-            className={styles.formTextArea}
-          />
-          <textarea 
-            onChange={handleInputValueCitacao} 
-            placeholder="Digite a citação"
-            value={citacao}
             className={styles.formTextArea}
           />
           <button className={styles.formButton} type="submit">Enviar mensagem</button>
